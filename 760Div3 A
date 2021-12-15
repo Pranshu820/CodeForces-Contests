@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define mod 1000000007
+using namespace std;
+
+
+
+int main(){
+ios_base::sync_with_stdio(false); cin.tie(0);
+int t; cin >> t; while(t--){
+    int arr[7], a = 0, b = 0, c = 0;
+    for(int i = 0; i < 7; i++) cin >> arr[i];
+    
+    a = arr[0];
+    b = arr[1];
+    c = 0;
+
+    for(int i = 2; i < 6; i++){
+        if(a + b + arr[i] == arr[6]){
+            c = arr[i];
+            break;
+        }
+    }
+cout << a << " " << b << " " << c << "\n";
+}
+    return 0;
+}
