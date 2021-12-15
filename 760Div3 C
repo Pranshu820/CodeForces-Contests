@@ -1,0 +1,50 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define mod 1000000007
+using namespace std;
+
+
+
+int main(){
+ios_base::sync_with_stdio(false); cin.tie(0);
+int t; cin >> t; while(t--){
+    int n;
+    cin >> n;
+    vector<ll> arr(n);
+    for(auto i = arr.begin(); i != arr.end(); ++i) cin >> *i;
+
+    ll one = arr[1], zer = arr[0];
+
+    for(int i = 3; i < n; i += 2){
+        one = __gcd(one, arr[i]);
+    }
+    for(int i = 2; i < n; i += 2){
+        zer = __gcd(zer, arr[i]);
+    }
+
+    if(one == zer) cout << "0\n";
+    
+    // else if(one == 1 || zer == 1){
+    //     cout << max(zer, one) << "\n";
+    // }
+    
+    else{
+
+        int czer = 0, cone = 0;
+        
+        for(int i = 0; i < n; i += 2){
+            if(!(arr[i] % one)) cone++;
+        }
+
+        for(int i = 1; i < n; i += 2){
+            if(!(arr[i] % zer)) czer++;
+        }
+
+if(!cone) cout << one << "\n";
+else if(!czer) cout << zer << "\n";
+else cout << "0\n";
+
+    }
+}
+    return 0;
+}
