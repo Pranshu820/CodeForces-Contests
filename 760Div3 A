@@ -14,6 +14,9 @@ int t; cin >> t; while(t--){
     a = arr[0];
     b = arr[1];
     c = 0;
+    
+    // c = arr[6] - a - b;
+    // from here you can directly print c
 
     for(int i = 2; i < 6; i++){
         if(a + b + arr[i] == arr[6]){
