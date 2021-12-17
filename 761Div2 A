@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define mod 1000000007
+using namespace std;
+
+
+
+int main(){
+ios_base::sync_with_stdio(false); cin.tie(0);
+int t; cin >> t; while(t--){
+    string s, t;
+    cin >> s >> t;
+    
+    int a = count(s.begin(), s.end(), 'a');
+    int b = count(s.begin(), s.end(), 'b');
+    int c = count(s.begin(), s.end(), 'c');
+
+    sort(s.begin(), s.end());
+
+    if((!a || !b || !c) || (t.compare("abc"))){
+        cout << s << "\n";
+    }
+
+
+    else{
+        while(a--) cout << 'a';
+        while(c--) cout << 'c';
+        while(b--) cout << 'b';
+
+        for(auto &i : s){
+            if(i > 'c') cout << i;
+        }
+        cout << "\n";
+    }
+}
+    return 0;
+}
