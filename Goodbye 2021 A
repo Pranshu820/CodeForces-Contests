@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define mod 1000000007
+using namespace std;
+
+
+
+int main(){
+ios_base::sync_with_stdio(false); cin.tie(0);
+int t; cin >> t; while(t--){
+    int n, ans = 0, x;
+    cin >> n;
+    vector<int> v(n);
+    for(auto &i : v) cin >> i;
+    
+    for(int i = -100; i <= -1; i++){
+        x = count(v.begin(), v.end(), i) + count(v.begin(), v.end(), -1 * i);
+        if(x == 1) ans++;
+        else if(x >= 2) ans += 2;
+        x = 0;
+    }
+
+    if(count(v.begin(), v.end(), 0)) ans++;
+    cout << ans << "\n";
+}
+    return 0;
+}
