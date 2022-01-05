@@ -1,0 +1,89 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define mod 1000000007
+using namespace std;
+
+
+
+int main(){
+ios_base::sync_with_stdio(false); cin.tie(0);
+int t; cin >> t; while(t--){
+    int n, k;
+    cin >> n >> k;
+    
+    char chess[n][n];
+
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            chess[i][j] = '.';
+        }
+    }
+
+    if(k == 1){
+      
+       chess[0][0] = 'R';
+       
+       for(int i = 0; i < n; i++){
+           for(int j = 0; j < n; j++){
+               cout << chess[i][j];
+           }
+           cout << "\n";
+       }
+       cout << "\n";
+    }
+
+    else{
+       
+       if(!(n & 1)){
+           if(k > n/2) cout << "-1\n";
+           
+           else{
+            int K = k;
+            for(int i = 0; i < n; i++){
+                for(int j = 0; j < n; j++){
+                    if(!K) break;
+                    chess[i][j] = 'R';
+                    i += 2;
+                    j++;
+                    K--;
+                }
+            }
+
+            for(int i = 0; i < n; i++){
+              for(int j = 0; j < n; j++){
+                cout << chess[i][j];
+           }
+           cout << "\n";
+       }
+
+       cout << "\n";
+        }
+       }
+
+       else{
+           if(k > n/2 + 1) cout << "-1\n";
+           else{
+              int K = k;
+              for(int i = 0; i < n; i++){
+                  for(int j = 0; j < n; j++){
+                    if(!K) break;
+                    chess[i][j] = 'R';
+                    i += 2;
+                    j++;
+                    K--;
+                  }
+              } 
+              for(int i = 0; i < n; i++){
+              for(int j = 0; j < n; j++){
+                cout << chess[i][j];
+           }
+           cout << "\n";
+       }
+
+       cout << "\n";
+           }
+       }
+    }
+}
+    return 0;
+}
