@@ -1,0 +1,50 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define mod 1000000007
+using namespace std;
+
+
+
+int main(){
+ios_base::sync_with_stdio(false); cin.tie(0);
+int t; cin >> t; while(t--){
+    string s;
+    cin >> s;
+
+    if(s.length() == 2) cout << s[0] + s[1] - 96 << "\n";
+
+    else{
+    
+    ll two_sum = 0;
+
+    for(int i = 1; i < s.length() - 1; i++){
+        if(s[i] + s[i + 1] - 96 >= 10) two_sum++;
+        if(two_sum) break;
+    }
+
+    if(!two_sum){
+        cout << s[0] + s[1] - 96;
+        for(int i = 2; i < s.length(); i++) cout << s[i];
+        cout << "\n";
+    }
+
+    else{
+        int tar = 0;
+
+        for(int i = s.length() - 2; i >= 0; i--){
+            if(s[i] + s[i + 1] - 96 >= 10){
+                tar = i;
+                break;
+            }
+        }
+
+        for(int i = 0; i < tar; i++) cout << s[i];
+        cout << s[tar] + s[tar + 1] - 96;
+        for(int i = tar + 2; i < s.length(); i++) cout << s[i];
+        cout << "\n";
+    }
+}
+
+}
+    return 0;
+}
