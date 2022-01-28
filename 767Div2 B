@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define mod 1000000007
+using namespace std;
+
+
+
+int main(){
+ios_base::sync_with_stdio(false); cin.tie(0);
+int t; cin >> t; while(t--){
+   ll l, r, k;
+   cin >> l >> r >> k;
+
+
+   if(l == 1 && r == 1) cout << "NO\n";
+   else if(l == r) cout << "YES\n";
+   else if(!k) cout << "NO\n";
+
+   else{
+      if(l & 1){
+         if((r - l)/2 + 1 <= k) cout << "YES\n";
+         else cout << "NO\n";
+      }
+      else{
+         int x = ceil((r - l)/2.0);
+         if(x <= k) cout << "YES\n";
+         else cout << "NO\n";
+      }
+   }
+}
+   return 0;
+}
