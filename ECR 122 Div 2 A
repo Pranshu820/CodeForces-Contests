@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define mod 1000000007
+using namespace std;
+
+int sol(string p, string q){
+	int cnt = 0;
+	for(int i = 0; i < min(p.length(), q.length()); i++){
+		if(p[i] == q[i]) cnt++;
+	}
+	return cnt;
+}
+
+int main(){
+ios_base::sync_with_stdio(false); cin.tie(0);
+int t; cin >> t; while(t--){
+	int n;
+	cin >> n;
+
+	int x = n % 7;
+
+	int ans1 = n - x, ans2 = n - x + 7;
+
+	if(n % 7 == 0) cout << n << "\n";
+
+	else{
+		string s = to_string(ans1), p = to_string(ans2), nn = to_string(n);
+        int y = sol(s, nn), z = sol(p, nn);
+
+		if(y >= z) cout << ans1 << "\n";
+		else cout << ans2 << "\n";
+	}
+
+
+}
+	return 0;
+}
