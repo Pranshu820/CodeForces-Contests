@@ -1,0 +1,52 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define mod 1000000007
+using namespace std;
+
+
+
+int main(){
+ios_base::sync_with_stdio(false); cin.tie(0);
+int t; cin >> t; while(t--){
+    int n;
+    cin >> n;
+
+    vector<int> a(n), b(n);
+    for(auto &i : a) cin >> i;
+    for(auto &i : b) cin >> i;
+
+    int maxi = max(*max_element(a.begin(), a.end()), *max_element(b.begin(), b.end())), x = 0, y = 0;
+
+    for(auto &i : a){
+        if(i == maxi){
+            x = 1;
+            break;
+        }
+    }
+    for(auto &i : b){
+        if(i == maxi){
+            y = 1;
+            break;
+        }
+    }
+
+    if(x){
+        for(int i = 0; i < n; i++){
+            if(a[i] != maxi){
+                if(a[i] < b[i]) swap(a[i], b[i]);
+            }
+        }
+        cout << maxi * *max_element(b.begin(), b.end()) << "\n";
+    }
+
+    else if(y){
+        for(int i = 0; i < n; i++){
+            if(b[i] != maxi){
+                if(b[i] < a[i]) swap(a[i], b[i]);
+            }
+        }
+        cout << maxi * *max_element(a.begin(), a.end()) << "\n";
+    }
+}
+    return 0;
+}
