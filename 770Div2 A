@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+bool palin(string s){ // for checking palindrome 
+	string p = s;
+	reverse(p.begin(), p.end());
+	if(!p.compare(s)) return true;
+	else return false;
+}
+
+int main(){
+
+int t; cin >> t; while(t--){
+	int n, k;
+	cin >> n >> k;
+	string s;
+	cin >> s;
+ 
+    if(palin(s) || !k) cout << "1\n";
+	else cout << "2\n";
+
+}
+	return 0;
+}
