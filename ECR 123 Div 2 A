@@ -1,0 +1,69 @@
+#include <bits/stdc++.h>
+#define pi 3.14159265359
+#define mod 1000000007
+#define ll long long
+#define ld long double
+#define vi vector<int>
+#define vll vector<ll>
+#define all(v) v.begin(), v.end()
+#define acc(v) accumulate(all(v), 0)
+#define in(v) for(auto &i : v) cin >> i
+#define out(v) for(auto &i : v) cout << i << ' '
+using namespace std;
+
+
+
+void solve(){
+    string s;
+    cin >> s;
+
+    int x = 0, y = 0, z = 0, xx = 0, yy = 0, zz = 0;
+
+    for(int i = 0; i < 6; i++){
+        if(s[i] == 'b'){
+            x = i;
+            break;
+        }
+    }
+    for(int i = 0; i < 6; i++){
+        if(s[i] == 'g'){
+            y = i;
+            break;
+        }
+    }
+    for(int i = 0; i < 6; i++){
+        if(s[i] == 'r'){
+            z = i;
+            break;
+        }
+    }
+    for(int i = 0; i < 6; i++){
+        if(s[i] == 'B'){
+            xx = i;
+            break;
+        }
+    }
+    for(int i = 0; i < 6; i++){
+        if(s[i] == 'G'){
+            yy = i;
+            break;
+        }
+    }
+    for(int i = 0; i < 6; i++){
+        if(s[i] == 'R'){
+            zz = i;
+            break;
+        }
+    }
+
+    if(zz > z && yy > y && xx > x) cout << "YES\n";
+    else cout << "NO\n";
+}
+
+int main(){
+ios_base::sync_with_stdio(false); cin.tie(0);
+int t = 1;
+cin >> t; // Comment this line if there is only one TC
+while(t--) solve();
+return 0;
+}
