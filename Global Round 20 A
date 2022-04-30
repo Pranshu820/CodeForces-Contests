@@ -1,0 +1,49 @@
+#include <bits/stdc++.h>
+#define pi 3.141592653589793238462
+#define mod 1000000007
+#define ll long long
+#define ld long double
+#define vi vector<int>
+#define vll vector<ll>
+#define all(v) v.begin(), v.end()
+#define acc(v) accumulate(all(v), 0)
+#define isort(v) sort(all(v))
+#define dsort(v) sort(v.rbegin(), v.rend())
+#define in(v) for(auto &i : v) cin >> i
+#define out(v) for(auto &i : v) cout << i << ' '
+using namespace std;
+
+
+
+void solve(){
+    int n;
+    cin >> n;
+    vi vec(n), v;
+    in(vec);
+
+    for(auto &i : vec){
+        if(i != 1) v.push_back(i);
+    }
+
+    n = v.size();
+
+    if(!n) cout << "maomao90\n";
+    else{
+         int even = 0;
+         for(auto &i : v){
+             if(!(i % 2)) even++;
+         }
+
+         if(!(even % 2)) cout << "maomao90\n";
+         else cout << "errorgorn\n";
+    }
+
+}
+
+int main(){
+ios_base::sync_with_stdio(false); cin.tie(0);
+int t = 1;
+cin >> t; // Comment this line if there is only one TC
+while(t--) solve();
+return 0;
+}
