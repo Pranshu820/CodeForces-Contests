@@ -1,1 +1,67 @@
+#include <bits/stdc++.h>
+#define pi 3.141592653589793238462
+#define mod 1000000007
+#define ll long long
+#define ld long double
+#define vi vector<int>
+#define vll vector<ll>
+#define all(v) v.begin(), v.end()
+#define acc(v) accumulate(all(v), 0)
+#define isort(v) sort(all(v))
+#define dsort(v) sort(v.rbegin(), v.rend())
+#define in(v) for(auto &i : v) cin >> i
+#define out(v) for(auto &i : v) cout << i << ' '
+using namespace std;
 
+
+
+void solve(){
+    string s;
+    cin >> s;
+
+    int len = s.length();
+
+    if(len == 1){
+        cout << "Bob " << s[0] - 'a' + 1 << "\n";
+    }
+
+    else if(!(len % 2)){
+        int sum = 0;
+        for(int i = 0; i < len; i++){
+            sum += (s[i] - 'a' + 1);
+        }
+
+        cout << "Alice " << sum << "\n";
+    }
+
+    else{
+
+        int l = 0, r = 0;
+        for(int i = 0; i < len - 1; i++){
+            l += (s[i] - 'a' + 1);
+        }
+        for(int i = 1; i < len; i++){
+            r += (s[i] - 'a' + 1);
+        }
+
+        cout << "Alice ";
+
+        if(l > r){
+            l -= (s[len - 1] - 'a' + 1); 
+            cout << l << "\n";
+        }
+
+        else{
+            r -= (s[0] - 'a' + 1);
+            cout << r << "\n";
+        }
+    }
+}
+
+int main(){
+ios_base::sync_with_stdio(false); cin.tie(0);
+int t = 1;
+cin >> t; // Comment this line if there is only one TC
+while(t--) solve();
+return 0;
+}
