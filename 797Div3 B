@@ -1,0 +1,74 @@
+#include <bits/stdc++.h>
+#define pi 3.141592653589793238462
+#define mod 1000000007
+#define ll long long
+#define ld long double
+#define vi vector<int>
+#define vll vector<ll>
+#define all(v) v.begin(), v.end()
+#define acc(v) accumulate(all(v), 0)
+#define isort(v) sort(all(v))
+#define dsort(v) sort(v.rbegin(), v.rend())
+#define in(v) for(auto &i : v) cin >> i
+#define out(v) for(auto &i : v) cout << i << ' '
+using namespace std;
+
+
+
+void solve(){
+    int n;
+    cin >> n;
+    vll a(n), b(n);
+    in(a);
+    in(b);
+
+    if(a == b) cout << "YES\n";
+
+    else if(n == 1){
+        if(a[0] >= b[0]) cout << "YES\n";
+        else cout << "NO\n";
+
+    }
+
+    else{
+        bool ok = true;
+        for(int i = 0; i < n; i++){
+            if(a[i] < b[i]){
+                ok = false;
+                break;
+            }
+        }
+
+        if(ok){
+            vll zer;
+            set<ll> ans;
+            for(int i = 0; i < n; i++){
+                if(b[i]){
+                    ll x = a[i] - b[i];
+                    ans.insert(x);
+                }
+                else{
+                    zer.push_back(a[i]);
+                }
+            }
+            
+            if(ans.empty()) cout << "YES\n";
+            else if(zer.empty()){
+                if(ans.size() == 1) cout << "YES\n";
+                else cout << "NO\n";
+            }
+            else if((ans.size() == 1) && ((*max_element(all(zer))) <= *(ans.begin()))) cout << "YES\n";
+            else cout << "NO\n";
+        }
+
+        else cout << "NO\n";
+    }
+}
+
+int main(){
+ios_base::sync_with_stdio(false); cin.tie(0);
+int t = 1;
+cin >> t; // Comment this line if there is only one TC
+while(t --> 0) solve();
+return 0;
+}
