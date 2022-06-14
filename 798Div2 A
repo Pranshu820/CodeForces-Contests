@@ -1,0 +1,74 @@
+#include <bits/stdc++.h>
+#define pi 3.141592653589793238462
+#define mod 1000000007
+#define ll long long
+#define ld long double
+#define vi vector<int>
+#define vll vector<ll>
+#define all(v) v.begin(), v.end()
+#define acc(v) accumulate(all(v), 0)
+#define pb push_back
+#define isort(v) sort(all(v))
+#define dsort(v) sort(v.rbegin(), v.rend())
+#define in(v) for(auto &i : v) cin >> i
+#define out(v) for(auto &i : v) cout << i << ' '
+using namespace std;
+
+
+
+void solve(){
+    int n, m, k;
+    cin >> n >> m >> k;
+
+    string a, b, c = "";
+    cin >> a >> b;
+
+    isort(a);
+    isort(b);
+
+    int i = 0, j = 0, c1 = 0, c2 = 0;
+
+    while(i < n && j < m){
+        if(a[i] <= b[j]){
+            if(c1 < k){
+                c.pb(a[i]);
+                i++;
+                c1++;
+                c2 = 0;
+            }
+
+            else{
+                c.pb(b[j]);
+                c2 = 1;
+                c1 = 0;
+                j++;
+            }
+        }
+        else{
+            if(c2 < k){
+                c.pb(b[j]);
+                j++;
+                c2++;
+                c1 = 0;
+            }
+            else{
+                c.pb(a[i]);
+                c1 = 1;
+                c2 = 0;
+                i++;
+            }
+        }
+    }
+
+    cout << c << "\n";
+
+
+}
+
+int main(){
+ios_base::sync_with_stdio(false); cin.tie(0);
+int t = 1;
+cin >> t; // Comment this line if there is only one TC
+while(t --> 0) solve();
+return 0;
+}
