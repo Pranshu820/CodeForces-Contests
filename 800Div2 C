@@ -1,0 +1,62 @@
+#include <bits/stdc++.h>
+#define pi 3.141592653589793238462
+#define mod 1000000007
+#define ll long long
+#define ld long double
+#define vi vector<int>
+#define vll vector<ll>
+#define all(v) v.begin(), v.end()
+#define acc(v) accumulate(all(v), 0)
+#define pb push_back
+#define isort(v) sort(all(v))
+#define dsort(v) sort(v.rbegin(), v.rend())
+#define in(v) for(auto &i : v) cin >> i
+#define out(v) for(auto &i : v) cout << i << ' '
+using namespace std;
+
+
+
+void solve(){
+    int n;
+    cin >> n;
+
+    vll v(n), pre(n);
+    in(v);
+
+    pre[0] = v[0];
+
+    for(int i = 1; i < n; i++){
+        pre[i] = pre[i - 1] + v[i];
+    }
+    
+
+    if(v[0] < 0 || v[n - 1] > 0 || acc(v) != 0){
+        cout << "No\n";
+        return;
+    }
+
+    for(int i = 1; i < n; i++){
+        if(pre[i] < 0){
+            cout << "No\n";
+            return;
+        }
+    }
+
+    for(int i = 0; i < n - 1; i++){
+        if(!pre[i] && pre[i + 1]){
+            cout << "No\n";
+            return;
+        }
+    }
+
+    cout << "Yes\n";
+
+}
+
+int main(){
+ios_base::sync_with_stdio(false); cin.tie(0);
+int t = 1;
+cin >> t; // Comment this line if there is only one TC
+while(t --> 0) solve();
+return 0;
+}
